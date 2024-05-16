@@ -1,9 +1,9 @@
-const PlantDetails = ({ plant }) => {
+const PlantDetails = ({ plant, onAddToCollection }) => {
   return (
     <div>
-      <h1>{plant.name}</h1>
+      <h1>{plant.scientific_name}</h1>
       <img src={plant.image_url} alt={plant.name} />
-      {/* Inne informacje o roślinie */}
+      <button onClick={onAddToCollection}>Dodaj do kolekcji</button>
     </div>
   );
 };

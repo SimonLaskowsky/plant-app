@@ -1,6 +1,7 @@
-import { useState } from 'react';
-import Search from './components/Search';
-import PlantDetails from './components/PlantDetails';
+import { useState } from "react";
+import Search from "./components/Search";
+import PlantDetails from "./components/PlantDetails";
+import Collection from "./components/Collection";
 
 const App = () => {
   const [selectedPlant, setSelectedPlant] = useState(null);
@@ -12,10 +13,19 @@ const App = () => {
   };
 
   return (
-    <div>
-      <Search onPlantSelect={handlePlantSelect} />
-      {selectedPlant && <PlantDetails plant={selectedPlant} />}
-    </div>
+    <Collection>
+      {(collection, addToCollection) => (
+        <div>
+          <Search onPlantSelect={handlePlantSelect} />
+          {selectedPlant && (
+            <PlantDetails
+              plant={selectedPlant}
+              onAddToCollection={() => addToCollection(selectedPlant)}
+            />
+          )}
+        </div>
+      )}
+    </Collection>
   );
 };
 
