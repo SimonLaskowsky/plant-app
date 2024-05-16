@@ -29,15 +29,20 @@ const Search = ({ onPlantSelect }) => {
 
   const debouncedOnChange = debounce(setInput, 300);
 
+  const handlePlantSelect = (plant) => {
+    onPlantSelect(plant);
+    setSuggestions([]); // clear the suggestions
+  };
+
   return (
-    <div>
+    <div className="search">
       <input type="text" onChange={(e) => debouncedOnChange(e.target.value)} />
       <div>
-        {suggestions.map((plant, index) => (
+        {suggestions.slice(0, 5).map((plant, index) => (
           <div
             className="suggestion"
             key={index}
-            onClick={() => onPlantSelect(plant)}
+            onClick={() => handlePlantSelect(plant)}
           >
             {plant.scientific_name}{" "}
             <img src={plant.image_url} alt={plant.name} />

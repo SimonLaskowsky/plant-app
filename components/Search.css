@@ -1,3 +1,16 @@
+.search input {
+  width: 100%;
+  padding: 15px;
+  margin: 10px 0;
+  font-size: 1.2em;
+  border: none;
+  border-radius: 15px;
+  background-color: #b6b6b689;
+  color: black;
+}
+.search input:focus {
+  outline: none;
+}
 .suggestion img {
   max-width: 100px;
   max-height: 100px;

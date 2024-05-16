@@ -10,7 +10,6 @@ const Collection = ({ children }) => {
 
   return (
     <div>
-      <h2>Moja Kolekcja Roślin</h2>
       <div>{children(collection, addToCollection)}</div>
     </div>
   );

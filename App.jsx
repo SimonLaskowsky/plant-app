@@ -13,19 +13,21 @@ const App = () => {
   };
 
   return (
-    <Collection>
-      {(collection, addToCollection) => (
-        <div>
-          <Search onPlantSelect={handlePlantSelect} />
-          {selectedPlant && (
-            <PlantDetails
-              plant={selectedPlant}
-              onAddToCollection={() => addToCollection(selectedPlant)}
-            />
-          )}
-        </div>
-      )}
-    </Collection>
+    <>
+      <Search onPlantSelect={handlePlantSelect} />
+      <Collection>
+        {(collection, addToCollection) => (
+          <div>
+            {selectedPlant && (
+              <PlantDetails
+                plant={selectedPlant}
+                onAddToCollection={() => addToCollection(selectedPlant)}
+              />
+            )}
+          </div>
+        )}
+      </Collection>
+    </>
   );
 };
 
